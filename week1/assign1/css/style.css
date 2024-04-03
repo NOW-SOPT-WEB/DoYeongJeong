@@ -1,0 +1,235 @@
+:root {
+  scroll-padding-top: 66px; /* 헤더 높이 + 추가 간격 */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: green;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 30px;
+  background-color: #f2f2f2;
+}
+header #hamburger {
+  display: flex;
+  width: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+nav {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 50%;
+  left: 0;
+  width: 150px;
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-left: 10px;
+  transform: translateY(-50%);
+  border-radius: 4px;
+}
+
+nav ul {
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #000;
+  border-radius: 2px;
+}
+
+nav ul li {
+  text-align: center;
+  cursor: pointer;
+}
+nav ul li a {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  text-decoration: none;
+  color: black;
+}
+nav ul li :hover {
+  background-color: black;
+  color: white;
+}
+
+main {
+  margin-left: 180px;
+  padding: 100px 20px 20px 50px;
+}
+
+.banner {
+  display: flex;
+  overflow: hidden;
+}
+.banner > ul {
+  padding: 0;
+}
+.banner > ul > ol {
+  padding: 0;
+}
+
+.items {
+  display: flex;
+  animation: roll 10s linear infinite;
+}
+
+.n1:last-child {
+  animation-delay: 10s;
+}
+
+.item {
+  width: 240px;
+  height: 240px;
+  background-color: lightblue;
+  margin-right: 12px;
+}
+.item > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+@keyframes roll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+section {
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #e6e6e6;
+  border-radius: 6px;
+}
+section > h2 {
+  padding: 0px 12px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 220px);
+  justify-content: center;
+  gap: 28px;
+}
+.container .img_box {
+  width: 180px;
+  height: 180px;
+}
+.container .img_box > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+.container > div:not(.img_box) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 220px;
+  padding: 12px;
+  background-color: #f2f2f2;
+  border-radius: 4px;
+  transform: translateY(0) scale(1);
+  transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+.container > div:not(.img_box) > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 12px;
+  row-gap: 5px;
+}
+.container > div:not(.img_box) > div button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.container > div:not(.img_box) > div button:hover #like {
+  filter: invert(16%) sepia(89%) saturate(6054%) hue-rotate(358deg)
+    brightness(97%) contrast(113%);
+}
+.container > div:not(.img_box) > div .title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.container > div:not(.img_box) > div .price::after {
+  content: "원";
+}
+.container > div:hover {
+  background-color: #dbdbdb;
+  transform: translateY(-4px) scale(1.01);
+  transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+@media (max-width: 1506px) {
+  .container {
+    grid-template-columns: repeat(4, 220px);
+  }
+}
+@media (max-width: 1258px) {
+  .container {
+    grid-template-columns: repeat(3, 220px);
+  }
+}
+@media (max-width: 1010px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .container > div:not(.img_box) {
+    width: 100%;
+  }
+  .container .img_box {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media (max-width: 750px) {
+  .container {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+  .container > div:not(.img_box) {
+    width: 100%;
+  }
+  .container .img_box {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#like {
+  width: 25px;
+}
+
+footer {
+  background-color: #f2f2f2;
+  padding: 10px 20px;
+  text-align: center;
+  height: 100px;
+}
