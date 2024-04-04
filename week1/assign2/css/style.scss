@@ -1,0 +1,113 @@
+@font-face {
+  font-family: "SDSamliphopangche_Outline";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
+  font-family: "SDSamliphopangche_Outline";
+}
+
+header {
+  text-align: center;
+
+  h1 {
+    font-size: 56px;
+    color: #005041;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .input_container {
+    display: flex;
+    gap: 16px;
+
+    input {
+      width: 180px;
+      height: 30px;
+      padding: 6px 10px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+
+  .list_container {
+    display: flex;
+    gap: 40px;
+    margin-top: 100px;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 200px;
+      padding: 12px;
+      margin: 20px 0px;
+      background-color: white;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      animation: scaleInOut 2s infinite ease-in-out;
+
+      span {
+        display: inline-block;
+        width: 180px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      button {
+        display: flex;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        img {
+          width: 20px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes scaleInOut {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
