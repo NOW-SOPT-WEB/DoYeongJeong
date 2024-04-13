@@ -2,7 +2,7 @@ import { SHOPPING_LIST } from "./const.js";
 
 const section = document.querySelector("#list");
 
-document.querySelectorAll("a").forEach((item) => {
+document.querySelectorAll(".category a").forEach((item) => {
   item.addEventListener("click", (event) => {
     event.preventDefault();
     const category = event.target.getAttribute("href").substring(1);
