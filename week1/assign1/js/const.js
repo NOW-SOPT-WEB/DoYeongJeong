@@ -18,7 +18,7 @@ export const SHOPPING_LIST = [
     title: "덤벨",
     price: 30000,
     category: "sports",
-    img: "./img/icon/like.svg",
+    img: "./img/health/dumbbell.jpeg",
   },
   {
     id: 4,
