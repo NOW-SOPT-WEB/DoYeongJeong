@@ -1,4 +1,5 @@
 import { SHOPPING_LIST } from "./const.js";
+import { addToCart } from "./cart.js";
 
 const section = document.querySelector("#list");
 
@@ -12,6 +13,13 @@ section.appendChild(container);
 
 SHOPPING_LIST.forEach((item) => {
   const itemDiv = document.createElement("div");
+  itemDiv.addEventListener("click", () => {
+    const isConfirmed = confirm("장바구니에 담으시겠습니까?");
+    if (isConfirmed) {
+      addToCart(item.id);
+    }
+  });
+
   const img = document.createElement("img");
   img.src = item.img;
   img.alt = item.title;
