@@ -204,6 +204,7 @@ section > h2 {
   border-radius: 4px;
   transform: translateY(0) scale(1);
   transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out;
+  cursor: pointer;
 }
 .container > div > div {
   display: flex;
