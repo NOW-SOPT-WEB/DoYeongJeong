@@ -1,5 +1,5 @@
 import { SHOPPING_LIST } from "../constants/const.js";
-import { addToCart } from "./cart.js";
+import { addToCart } from "./addToCart.js";
 
 export const getAllShoppingList = () => {
   const section = document.querySelector("#list");
