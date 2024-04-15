@@ -39,11 +39,15 @@ export const getCartList = () => {
       const deleteBtn = document.createElement("button");
       deleteBtn.className = "delete__btn";
       deleteBtn.innerText = "삭제";
+
+      // 장바구니 삭제
       deleteBtn.addEventListener("click", () => {
         const isDeleted = confirm("장바구니에서 삭제하시겠습니까?");
         if (isDeleted) {
           const updatedCart = cart.filter((cartId) => cartId !== item.id);
-          e.setItem("cart", JSON.stringify(updatedCart));
+          localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+          alert("삭제되었습니다!");
           window.location.reload();
         }
       });
