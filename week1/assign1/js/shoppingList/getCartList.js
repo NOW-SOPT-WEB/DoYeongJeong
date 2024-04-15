@@ -33,7 +33,8 @@ export const getCartList = () => {
       info.appendChild(p);
       infoCell.appendChild(info);
 
-      row.insertCell(2).innerText = item.price;
+      row.insertCell(2).innerText = `${item.price.toLocaleString()}원`;
+
       row.insertCell(3).innerText = item.category;
 
       const deleteBtn = document.createElement("button");
