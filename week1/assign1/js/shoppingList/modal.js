@@ -2,6 +2,7 @@ import { SHOPPING_LIST } from "../constants/const.js";
 
 // 구매하기 모달
 export const modalListener = () => {
+  // 구매하기 버튼 클릭
   document.querySelector(".buy__btn").addEventListener("click", () => {
     const checkedItems = document.querySelectorAll(
       'input[name="itemCheckbox"]:checked'
@@ -64,6 +65,7 @@ export const modalListener = () => {
       window.location.reload();
     });
 
+    // 모달 닫기 버튼
     document
       .querySelector(".modal_close")
       .addEventListener("click", (event) => {

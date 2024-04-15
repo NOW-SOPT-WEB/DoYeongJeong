@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 62.5%;
 }
 
 body {
@@ -12,24 +13,35 @@ body {
   padding: 0;
   background-color: green;
   font-family: Arial, sans-serif;
+  font-size: 1.6rem;
 }
 
 header {
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 30px;
+  padding: 1rem 3rem;
   background-color: #f2f2f2;
+
+  img {
+    width: 4rem;
+    cursor: pointer;
+  }
+
+  span {
+    font-size: 2.4rem;
+    font-weight: 500;
+  }
 }
-header #hamburger {
+
+header .hamburger {
   display: flex;
-  width: 30px;
+  width: 3rem;
   border: none;
   cursor: pointer;
 }
@@ -37,7 +49,7 @@ header #hamburger {
 .side_nav {
   position: fixed;
   right: 0;
-  width: 200px;
+  width: 20rem;
   height: 100%;
   margin: 0;
   background-color: rgb(0, 255, 0);
@@ -47,8 +59,8 @@ header #hamburger {
   transform: translateX(200px);
 
   button {
-    margin: 12px;
-    width: 30px;
+    margin: 1.2rem;
+    width: 3rem;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -61,20 +73,20 @@ header #hamburger {
   ul {
     padding: 0;
     margin: 0;
-    margin-top: 8px;
+    margin-top: 1rem;
   }
 
   li {
     list-style: none;
-    padding: 10px 15px;
+    padding: 1rem 1.5rem;
     text-align: center;
   }
 
   a {
     display: block;
-    padding: 10px;
+    padding: 1rem;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 2rem;
     color: black;
   }
 }
@@ -122,13 +134,13 @@ table colgroup {
 table th,
 table td {
   border: 1px solid white;
-  padding: 12px;
+  padding: 1.2rem;
 }
 
 .tbody__wrapper {
   display: block;
   width: 60%;
-  max-height: 510px;
+  max-height: 51rem;
   overflow-y: scroll;
 
   > table {
@@ -142,12 +154,12 @@ table td {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100px;
-  margin: 0 20px;
+  height: 10rem;
+  margin: 0 2rem;
 }
 
 .delete__btn {
-  font-size: 14px;
+  font-size: 1.4rem;
   background-color: #f44336;
   color: white;
   border: none;
@@ -161,13 +173,13 @@ table td {
 .btn__container {
   display: flex;
   justify-content: center;
-  gap: 32px;
+  gap: 3.2rem;
   width: 100%;
   padding: 32px 0;
 
   > button {
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 1.6rem;
     color: white;
     border: none;
     cursor: pointer;
@@ -198,7 +210,7 @@ table td {
   display: flex;
   flex-direction: column;
   background-color: #fefefe;
-  margin: 120px auto;
+  margin: 12rem auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;

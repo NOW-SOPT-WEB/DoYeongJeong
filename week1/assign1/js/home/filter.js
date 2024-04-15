@@ -1,9 +1,10 @@
 import { SHOPPING_LIST } from "../constants/const.js";
 
 export const filteredItems = () => {
-  const section = document.querySelector("#list");
+  const section = document.querySelector(".list");
 
   document.querySelectorAll(".category a").forEach((item) => {
+    // 필터
     item.addEventListener("click", (event) => {
       event.preventDefault();
       const category = event.target.getAttribute("href").substring(1);
@@ -47,7 +48,7 @@ export const filteredItems = () => {
         const infoDiv = document.createElement("div");
         const likeButton = document.createElement("button");
         const likeImg = document.createElement("img");
-        likeImg.id = "like";
+        likeImg.className = "like";
         likeImg.src = "./img/icon/like.svg";
         likeImg.alt = "좋아요";
         likeButton.appendChild(likeImg);

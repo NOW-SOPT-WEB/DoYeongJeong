@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 62.5%;
 }
 
 body {
@@ -12,24 +13,35 @@ body {
   padding: 0;
   background-color: green;
   font-family: Arial, sans-serif;
+  font-size: 1.6rem;
 }
 
 header {
   position: fixed;
   z-index: 1;
   top: 0;
-  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 30px;
+  padding: 1rem 3rem;
   background-color: #f2f2f2;
+
+  img {
+    width: 4rem;
+    cursor: pointer;
+  }
+
+  span {
+    font-size: 2.4rem;
+    font-weight: 500;
+  }
 }
-header #hamburger {
+
+header .hamburger {
   display: flex;
-  width: 30px;
+  width: 3rem;
   border: none;
   cursor: pointer;
 }
@@ -37,7 +49,7 @@ header #hamburger {
 .side_nav {
   position: fixed;
   right: 0;
-  width: 200px;
+  width: 20rem;
   height: 100%;
   margin: 0;
   background-color: rgb(0, 255, 0);
@@ -47,8 +59,8 @@ header #hamburger {
   transform: translateX(200px);
 
   button {
-    margin: 12px;
-    width: 30px;
+    margin: 1.2rem;
+    width: 3rem;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -61,20 +73,20 @@ header #hamburger {
   ul {
     padding: 0;
     margin: 0;
-    margin-top: 8px;
+    margin-top: 1rem;
   }
 
   li {
     list-style: none;
-    padding: 10px 15px;
+    padding: 1rem 1.5rem;
     text-align: center;
   }
 
   a {
     display: block;
-    padding: 10px;
+    padding: 1rem;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 2rem;
     color: black;
   }
 }
@@ -86,12 +98,13 @@ header #hamburger {
   align-items: center;
   top: 50%;
   left: 0;
-  width: 150px;
+  width: 15rem;
   background-color: #f2f2f2;
-  padding: 10px;
-  margin-left: 10px;
+  padding: 1rem;
+  margin-left: 1rem;
   transform: translateY(-50%);
-  border-radius: 4px;
+  border-radius: 0.4rem;
+  font-size: 1.6rem;
 }
 
 .category ul {
@@ -99,8 +112,8 @@ header #hamburger {
   width: 100%;
   padding: 0;
   margin: 0;
-  border: 1px solid #000;
-  border-radius: 2px;
+  border: 0.1rem solid #000;
+  border-radius: 0.2rem;
 }
 
 .category ul li {
@@ -122,17 +135,19 @@ header #hamburger {
 }
 
 .home__container {
-  margin-left: 180px;
-  padding: 100px 20px 20px 50px;
+  margin-left: 18rem;
+  padding: 10rem 2rem 2rem 5rem;
 }
 
 .banner {
   display: flex;
   overflow: hidden;
 }
+
 .banner > ul {
   padding: 0;
 }
+
 .banner > ul > ol {
   padding: 0;
 }
@@ -147,11 +162,12 @@ header #hamburger {
 }
 
 .item {
-  width: 240px;
-  height: 240px;
+  width: 24rem;
+  height: 24rem;
   background-color: lightblue;
   margin-right: 12px;
 }
+
 .item > img {
   width: 100%;
   height: 100%;
@@ -167,14 +183,16 @@ header #hamburger {
   }
 }
 
-section {
-  padding: 20px;
-  margin: 20px 0;
+.list {
+  padding: 2rem;
+  margin: 2rem 0;
   background-color: #e6e6e6;
   border-radius: 6px;
 }
-section > h2 {
+
+.list > h2 {
   padding: 0px 12px;
+  font-size: 2.4rem;
 }
 
 .container {
@@ -182,6 +200,7 @@ section > h2 {
   grid-template-columns: repeat(5, 220px);
   justify-content: center;
   gap: 28px;
+  font-size: 3.2rem;
 }
 
 .container > div > img {
@@ -197,11 +216,11 @@ section > h2 {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  row-gap: 8px;
-  width: 220px;
-  padding: 12px;
+  row-gap: 0.8rem;
+  width: 22rem;
+  padding: 1.2rem;
   background-color: #f2f2f2;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   transform: translateY(0) scale(1);
   transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out;
   cursor: pointer;
@@ -218,13 +237,19 @@ section > h2 {
   border: none;
   background-color: transparent;
 }
-.container > div > div button:hover #like {
+.container > div > div button:hover .like {
   filter: invert(16%) sepia(89%) saturate(6054%) hue-rotate(358deg)
     brightness(97%) contrast(113%);
 }
-.container > div > div .title {
-  font-size: 1.2rem;
-  font-weight: 500;
+.container > div > div {
+  .title {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  .price {
+    font-size: 1.6rem;
+  }
 }
 .container > div > div .price::after {
   content: "원";
@@ -264,7 +289,7 @@ section > h2 {
   }
 }
 
-#like {
+.like {
   width: 25px;
 }
 

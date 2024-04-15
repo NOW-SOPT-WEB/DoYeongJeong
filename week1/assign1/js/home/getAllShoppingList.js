@@ -2,7 +2,7 @@ import { SHOPPING_LIST } from "../constants/const.js";
 import { addToCart } from "./addToCart.js";
 
 export const getAllShoppingList = () => {
-  const section = document.querySelector("#list");
+  const section = document.querySelector(".list");
 
   const categoryName = document.createElement("h2");
   categoryName.textContent = "전체";
@@ -28,7 +28,7 @@ export const getAllShoppingList = () => {
     const infoDiv = document.createElement("div");
     const likeButton = document.createElement("button");
     const likeImg = document.createElement("img");
-    likeImg.id = "like";
+    likeImg.className = "like";
     likeImg.src = "./img/icon/like.svg";
     likeImg.alt = "좋아요";
     likeButton.appendChild(likeImg);
