@@ -128,7 +128,7 @@ table td {
 .tbody__wrapper {
   display: block;
   width: 60%;
-  max-height: 500px;
+  max-height: 510px;
   overflow-y: scroll;
 
   > table {

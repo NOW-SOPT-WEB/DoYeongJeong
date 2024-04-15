@@ -37,6 +37,16 @@ cart.forEach((id) => {
     const deleteBtn = document.createElement("button");
     deleteBtn.className = "delete__btn";
     deleteBtn.innerText = "삭제";
+    deleteBtn.addEventListener("click", () => {
+      const isDeleted = confirm("장바구니에서 삭제하시겠습니까?");
+      if (isDeleted) {
+        const updatedCart = cart.filter((cartId) => cartId !== item.id);
+
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        window.location.reload();
+      }
+    });
+
     row.insertCell(4).appendChild(deleteBtn);
   }
 });
