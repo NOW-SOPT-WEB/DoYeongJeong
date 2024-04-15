@@ -5,6 +5,7 @@ const tableBody = document
   .querySelector(".cart_table")
   .getElementsByTagName("tbody")[0];
 
+// 장바구니(로컬스토리지)에 담긴 상품을 테이블에 추가
 cart.forEach((id) => {
   const item = SHOPPING_LIST.find((item) => item.id === id);
   if (item) {
@@ -41,12 +42,15 @@ cart.forEach((id) => {
       const isDeleted = confirm("장바구니에서 삭제하시겠습니까?");
       if (isDeleted) {
         const updatedCart = cart.filter((cartId) => cartId !== item.id);
-
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        e.setItem("cart", JSON.stringify(updatedCart));
         window.location.reload();
       }
     });
 
     row.insertCell(4).appendChild(deleteBtn);
   }
+});
+
+document.querySelector(".to_go_home").addEventListener("click", () => {
+  window.location.href = "./index.html";
 });
