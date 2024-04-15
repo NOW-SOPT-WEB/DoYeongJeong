@@ -157,3 +157,28 @@ table td {
   cursor: pointer;
   border-radius: 4px;
 }
+
+.btn__container {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  width: 80%;
+  padding: 32px 0;
+
+  > button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+
+    &.buy__btn {
+      background-color: #2196f3;
+    }
+
+    &.to_go_home {
+      background-color: #4caf10;
+    }
+  }
+}
