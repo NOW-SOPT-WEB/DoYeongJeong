@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>도영이의 투두리스트</title>
+  </head>
+  <body>
+    <!-- 헤더 -->
+    <header>
+      <h1>또영의 To Do</h1>
+    </header>
+
+    <main>
+      <div class="input_container">
+        <input type="text" placeholder="할 일을 입력하세요!" />
+        <button>
+          <img src="./img/plus_button.png" alt="추가" width="24px" />
+        </button>
+      </div>
+
+      <div class="list_container">
+        <!-- 시작하지 않은 일 -->
+        <section>
+          <h3>Not started</h3>
+          <ul>
+            <li>
+              <span>코딩 테스트 1문제 풀기(백준, 프로그래머스)</span>
+              <button><img src="./img/x_button.png" alt="삭제" /></button>
+            </li>
+            <li>
+              <span>과외</span>
+              <button><img src="./img/x_button.png" alt="삭제" /></button>
+            </li>
+            <li>
+              <span>운동</span>
+              <button><img src="./img/x_button.png" alt="삭제" /></button>
+            </li>
+            <li>
+              <span>영어회화</span>
+              <button><img src="./img/x_button.png" alt="삭제" /></button>
+            </li>
+          </ul>
+        </section>
+
+        <!-- 완료한 일 -->
+        <section>
+          <h3>Done</h3>
+          <ul>
+            <li>
+              <span>점심 먹기</span>
+              <button>
+                <img src="./img/x_button.png" alt="삭제" />
+              </button>
+            </li>
+            <li>
+              <span>웹 파트 1주차 과제</span>
+              <button><img src="./img/x_button.png" alt="삭제" /></button>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
