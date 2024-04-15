@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/shoppingList.css" />
     <title>도영 Shop!</title>
     <link rel="icon" href="./img/icon.jpeg" type="image/x-icon" />
   </head>
@@ -32,6 +32,44 @@
         <li><a href="shoppingList.html">장바구니</a></li>
     </nav>
 
-    <script type="text/javascript" src="./js/sideNav.js"></script>
+    <!-- 메인 -->
+    <main class="shopping_list__container">
+        <table class="">
+          <colgroup>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th>
+                <input type="checkbox" />
+              </th>
+              <th>상품정보</th>
+              <th>상품금액</th>
+              <th>카테고리</th>
+              <th>비고</th>
+            </tr>
+          </thead>
+        </table>
+        <div class="tbody__wrapper">
+          <table class="cart_table">
+            <colgroup>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+            </colgroup>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+    </main>
+
+    <script type="module" src="./js/sideNav.js"></script>
+    <script type="module" src="./js/getCartList.js"></script>
   </body>
 </html>
