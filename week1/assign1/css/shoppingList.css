@@ -85,9 +85,15 @@ header .hamburger {
   a {
     display: block;
     padding: 1rem;
+    border-radius: 4px;
     text-decoration: none;
     font-size: 2rem;
     color: black;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
   }
 }
 
