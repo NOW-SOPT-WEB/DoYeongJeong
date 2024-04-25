@@ -1,12 +1,13 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
-import { Global } from "@emotion/react";
-import ResetStyles from "./styles/reset.js";
+import { Global } from '@emotion/react';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+import App from './App.jsx';
+import ResetStyles from './styles/reset.js';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <>
     <Global styles={ResetStyles} />
     <App />
-  </React.StrictMode>
+  </>,
 );
