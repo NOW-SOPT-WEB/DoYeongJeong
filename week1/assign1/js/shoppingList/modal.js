@@ -65,13 +65,13 @@ export const modalListener = () => {
       window.location.reload();
     });
 
+    document.querySelector("dialog").showModal();
+
     // 모달 닫기 버튼
     document
       .querySelector(".modal_close")
       .addEventListener("click", (event) => {
-        document.querySelector(".modal").style.display = "none";
+        document.querySelector("dialog").close();
       });
-
-    document.querySelector(".modal").style.display = "block";
   });
 };
