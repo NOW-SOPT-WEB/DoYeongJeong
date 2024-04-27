@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/shoppingList.css" />
+    <title>도영 Shop!</title>
+    <link rel="icon" href="./img/icon.jpeg" type="image/x-icon" />
+  </head>
+  <body>
+    <!-- 헤더 -->
+    <header>
+      <img src="./img/icon.jpeg" alt="" />
+      <span>장바구니</span>
+      <button class="hamburger">
+        <img src="./img/icon/hamburger.svg" alt="" />
+      </button>
+    </header>
+
+    <!-- side nav -->
+    <nav class="side_nav">
+      <button class="nav_close">
+        <img src="./img/icon/close.svg" alt="닫기" />
+      </button>
+      <ul>
+        <li><a href="javascript:alert('준비 중입니다.')">관심상품 목록</a></li>
+        <li><a href="javascript:alert('준비 중입니다.')">관리자 페이지</a></li>
+        <li><a href="shoppingList.html">장바구니</a></li>
+    </nav>
+
+    <!-- 메인 -->
+    <main class="shopping_list__container">
+        <table>
+          <colgroup>
+            <col>
+            <col>
+            <col>
+            <col>
+            <col>
+          </colgroup>
+          <thead>
+            <tr>
+              <th>
+                <input type="checkbox" id="selectAllCheckbox" />
+              </th>
+              <th>상품정보</th>
+              <th>상품금액</th>
+              <th>카테고리</th>
+              <th>비고</th>
+            </tr>
+          </thead>
+        </table>
+        <div class="tbody__wrapper">
+          <table class="cart_table">
+            <colgroup>
+              <col>
+              <col>
+              <col>
+              <col>
+              <col>
+            </colgroup>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="btn__container">
+          <button class="buy__btn">구매하기</button>
+          <button class="to_go_home">홈으로</button>
+        </div>
+    </main>
+
+    <dialog class="modal">
+      <div class="modal_content">
+      </div>
+    </dialog>
+
+    <script type="module" src="./js/shoppingList/index.js"></script>
+  </body>
+</html>

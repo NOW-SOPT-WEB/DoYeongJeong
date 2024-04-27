@@ -4,64 +4,129 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 62.5%;
 }
 
 body {
+  position: relative;
   margin: 0;
   padding: 0;
   background-color: green;
   font-family: Arial, sans-serif;
+  font-size: 1.6rem;
 }
 
 header {
   position: fixed;
-  z-index: 1000;
+  z-index: 1;
   top: 0;
-  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 30px;
+  padding: 1rem 3rem;
   background-color: #f2f2f2;
+
+  img {
+    width: 4rem;
+    cursor: pointer;
+  }
+
+  span {
+    font-size: 2.4rem;
+    font-weight: 500;
+  }
 }
-header #hamburger {
+
+header .hamburger {
   display: flex;
-  width: 30px;
+  width: 3rem;
   border: none;
   cursor: pointer;
 }
 
-nav {
+.side_nav {
+  position: fixed;
+  right: 0;
+  width: 20rem;
+  height: 100%;
+  margin: 0;
+  background-color: rgb(0, 255, 0);
+  overflow-x: hidden;
+  transition: transform 0.5s ease-in-out;
+  z-index: 1;
+  transform: translateX(200px);
+
+  button {
+    margin: 1.2rem;
+    width: 3rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    margin-top: 1rem;
+  }
+
+  li {
+    list-style: none;
+    padding: 1rem 1.5rem;
+    text-align: center;
+  }
+
+  a {
+    display: block;
+    padding: 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 2rem;
+    color: black;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+
+.category {
   position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   top: 50%;
   left: 0;
-  width: 150px;
+  width: 15rem;
   background-color: #f2f2f2;
-  padding: 10px;
-  margin-left: 10px;
+  padding: 1rem;
+  margin-left: 1rem;
   transform: translateY(-50%);
-  border-radius: 4px;
+  border-radius: 0.4rem;
+  font-size: 1.6rem;
 }
 
-nav ul {
+.category ul {
   list-style: none;
   width: 100%;
   padding: 0;
   margin: 0;
-  border: 1px solid #000;
-  border-radius: 2px;
+  border: 0.1rem solid #000;
+  border-radius: 0.2rem;
 }
 
-nav ul li {
+.category ul li {
   text-align: center;
   cursor: pointer;
 }
-nav ul li a {
+.category ul li a {
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -70,23 +135,25 @@ nav ul li a {
   text-decoration: none;
   color: black;
 }
-nav ul li :hover {
+.category ul li :hover {
   background-color: black;
   color: white;
 }
 
-main {
-  margin-left: 180px;
-  padding: 100px 20px 20px 50px;
+.home__container {
+  margin-left: 18rem;
+  padding: 10rem 2rem 2rem 5rem;
 }
 
 .banner {
   display: flex;
   overflow: hidden;
 }
+
 .banner > ul {
   padding: 0;
 }
+
 .banner > ul > ol {
   padding: 0;
 }
@@ -101,11 +168,12 @@ main {
 }
 
 .item {
-  width: 240px;
-  height: 240px;
+  width: 24rem;
+  height: 24rem;
   background-color: lightblue;
   margin-right: 12px;
 }
+
 .item > img {
   width: 100%;
   height: 100%;
@@ -120,14 +188,17 @@ main {
     transform: translateX(-100%);
   }
 }
-section {
-  padding: 20px;
-  margin: 20px 0;
+
+.list {
+  padding: 2rem;
+  margin: 2rem 0;
   background-color: #e6e6e6;
   border-radius: 6px;
 }
-section > h2 {
+
+.list > h2 {
   padding: 0px 12px;
+  font-size: 2.4rem;
 }
 
 .container {
@@ -135,50 +206,58 @@ section > h2 {
   grid-template-columns: repeat(5, 220px);
   justify-content: center;
   gap: 28px;
+  font-size: 3.2rem;
 }
-.container .img_box {
-  width: 180px;
-  height: 180px;
-}
-.container .img_box > img {
+
+.container > div > img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   border-radius: 4px;
 }
-.container > div:not(.img_box) {
+
+.container > div {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  width: 220px;
-  padding: 12px;
+  row-gap: 0.8rem;
+  width: 22rem;
+  padding: 1.2rem;
   background-color: #f2f2f2;
-  border-radius: 4px;
+  border-radius: 0.4rem;
   transform: translateY(0) scale(1);
   transition: background-color 0.4s ease-in-out, transform 0.4s ease-in-out;
+  cursor: pointer;
 }
-.container > div:not(.img_box) > div {
+.container > div > div {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  margin-top: 12px;
   row-gap: 5px;
 }
-.container > div:not(.img_box) > div button {
+.container > div > div button {
   cursor: pointer;
   border: none;
   background-color: transparent;
 }
-.container > div:not(.img_box) > div button:hover #like {
+.container > div > div button:hover .like {
   filter: invert(16%) sepia(89%) saturate(6054%) hue-rotate(358deg)
     brightness(97%) contrast(113%);
 }
-.container > div:not(.img_box) > div .title {
-  font-size: 1.2rem;
-  font-weight: 500;
+.container > div > div {
+  .title {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  .price {
+    font-size: 1.6rem;
+  }
 }
-.container > div:not(.img_box) > div .price::after {
+.container > div > div .price::after {
   content: "원";
 }
 .container > div:hover {
@@ -201,12 +280,9 @@ section > h2 {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
-  .container > div:not(.img_box) {
+
+  .container > div {
     width: 100%;
-  }
-  .container .img_box {
-    width: 100%;
-    height: 100%;
   }
 }
 @media (max-width: 750px) {
@@ -214,16 +290,12 @@ section > h2 {
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
   }
-  .container > div:not(.img_box) {
+  .container > div {
     width: 100%;
-  }
-  .container .img_box {
-    width: 100%;
-    height: 100%;
   }
 }
 
-#like {
+.like {
   width: 25px;
 }
 
