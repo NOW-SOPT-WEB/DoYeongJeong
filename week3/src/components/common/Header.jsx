@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 const Header = () => {
   return (
     <Wrapper>
-      <Title>캐릭터 맞추기</Title>
+      <Title>루피 캐릭터 맞추기</Title>
     </Wrapper>
   );
 };
@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 6rem;
-  background-color: ${({ theme }) => theme.colors.mainViolet};
+  background-color: ${({ theme }) => theme.colors.pink};
 `;
 
 const Title = styled.h1`

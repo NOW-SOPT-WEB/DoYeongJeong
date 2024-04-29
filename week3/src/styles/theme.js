@@ -28,6 +28,7 @@ export const theme = {
     gray20: '#EAEAEA',
     gray10: '#F4F4F4',
     gray5: '#F9F9F9',
+    pink: '#FFC0CB',
     white: '#FFF',
   },
 };
