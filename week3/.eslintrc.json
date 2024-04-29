@@ -34,7 +34,7 @@
     "no-duplicate-imports": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "no-unused-vars": "error",
+    "no-unused-vars": "true",
     "no-undef": "error",
     "indent": "off",
     "import/no-unresolved": "off",
