@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Header from './components/common/Header';
-import Home from './components/homePage/Home';
+import Home from './homePage/components/Home';
+import Header from './shared/components/Header';
 
 const Router = () => {
   const routerData = [
