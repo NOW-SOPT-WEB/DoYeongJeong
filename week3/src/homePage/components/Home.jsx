@@ -178,8 +178,7 @@ const Button = styled.button`
   }
 
   &.reset {
-    z-index: 2;
-    position: absolute;
+    position: fixed;
     top: 2rem;
     right: 2rem;
     background-color: ${({ theme }) => theme.colors.gray80};
