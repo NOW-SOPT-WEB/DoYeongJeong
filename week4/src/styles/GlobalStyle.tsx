@@ -87,11 +87,15 @@ const globalStyle = css`
   video {
     margin: 0;
     padding: 0;
-    border: 0;
+
     /* font-size: 100%; */
+
     /* font: inherit; */
     vertical-align: baseline;
+
+    border: 0;
   }
+
   /* HTML5 display-role reset for older browsers */
   article,
   aside,
@@ -106,36 +110,28 @@ const globalStyle = css`
   section {
     display: block;
   }
-  body {
-    line-height: 1;
-  }
+
   ol,
   ul {
     list-style: none;
   }
+
   blockquote,
   q {
     quotes: none;
   }
-  blockquote:before,
-  blockquote:after,
-  q:before,
-  q:after {
+
+  blockquote::before,
+  blockquote::after,
+  q::before,
+  q::after {
     content: '';
     content: none;
   }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
-  }
-
-  body {
-    button {
-      border: none;
-      margin: 0;
-      background: none;
-      cursor: pointer;
-    }
   }
 
   :root {
@@ -144,10 +140,12 @@ const globalStyle = css`
 
   html {
     scroll-behavior: smooth;
+
     font-size: 62.5%;
   }
 
   body {
+    font-size: 1.6rem;
     font-family:
       'Pretendard Variable',
       Pretendard,
@@ -164,8 +162,15 @@ const globalStyle = css`
       'Segoe UI Emoji',
       'Segoe UI Symbol',
       sans-serif;
+    line-height: 1;
 
-    font-size: 1.6rem;
+    button {
+      margin: 0;
+
+      background: none;
+      cursor: pointer;
+      border: none;
+    }
   }
 
   * {

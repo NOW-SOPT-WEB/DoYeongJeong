@@ -38,19 +38,20 @@ export default Home;
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 100vh;
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 2rem;
+  align-items: center;
   width: 100%;
   max-width: 400px;
   padding: 3rem;
+
   border: 1px solid #ccc;
   border-radius: 10px;
 `;
@@ -63,16 +64,19 @@ const Text = styled.p`
 const Input = styled.input`
   width: 20rem;
   padding: 1rem;
+
   border: 1px solid #ccc;
   border-radius: 5px;
 `;
 
 const Button = styled.button`
   padding: 10px;
+
+  color: white;
+
+  background-color: #007bff;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
-  color: white;
 
   &:hover {
     background-color: #0056b3;
