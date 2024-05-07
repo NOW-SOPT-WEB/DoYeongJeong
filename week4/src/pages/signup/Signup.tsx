@@ -2,9 +2,12 @@
 
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // 회원가입 페이지 컴포넌트
 const SignUpPage = () => {
+  const navigate = useNavigate();
+
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [nickName, setNickName] = useState('');
@@ -45,8 +48,12 @@ const SignUpPage = () => {
 
         <label htmlFor="phone">전화번호</label>
         <Input name="phone" placeholder="전화번호" value={phone} onChange={(e) => setPhone(e.target.value)} required />
-
-        <Button type="submit">회원가입</Button>
+        <ButtonContainer>
+          <Button type="submit">회원가입</Button>
+          <Button type="button" onClick={() => navigate(-1)}>
+            뒤로가기
+          </Button>
+        </ButtonContainer>
       </Form>
     </Container>
   );
@@ -65,6 +72,7 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  align-items: center;
   width: 100%;
   padding: 3rem;
 
@@ -83,6 +91,11 @@ const Input = styled.input`
 
   border: 1px solid #ccc;
   border-radius: 5px;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 2rem;
 `;
 
 const Button = styled.button`
