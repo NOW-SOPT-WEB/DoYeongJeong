@@ -166,6 +166,9 @@ const globalStyle = css`
       sans-serif;
 
     font-size: 1.6rem;
+  }
+
+  * {
     box-sizing: border-box;
   }
 `;
