@@ -25,7 +25,10 @@ const Home = () => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <Button type="submit">로그인</Button>
+        <ButtonContainer>
+          <Button type="submit">로그인</Button>
+          <Button type="button">회원가입</Button>
+        </ButtonContainer>
       </Form>
     </Container>
   );
@@ -74,4 +77,9 @@ const Button = styled.button`
   &:hover {
     background-color: #0056b3;
   }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 2rem;
 `;
