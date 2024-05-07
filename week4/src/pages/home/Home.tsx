@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
 
@@ -27,7 +29,9 @@ const Home = () => {
         />
         <ButtonContainer>
           <Button type="submit">로그인</Button>
-          <Button type="button">회원가입</Button>
+          <Button type="button" onClick={() => navigate('signup')}>
+            회원가입
+          </Button>
         </ButtonContainer>
       </Form>
     </Container>
