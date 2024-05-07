@@ -1,12 +1,17 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Home from './pages/Home';
+import Home from './pages/home/Home';
+import Signup from './pages/signup/Signup';
 
 const Router = () => {
   const routerData = [
     {
       path: '/',
       element: <Home />,
+    },
+    {
+      path: '/signup',
+      element: <Signup />,
     },
   ];
 
