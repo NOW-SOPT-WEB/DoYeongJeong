@@ -74,7 +74,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  padding: 10px;
+  padding: 1rem;
 
   color: white;
 
