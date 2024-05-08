@@ -11,6 +11,7 @@ const Card = ({ card, index, handleFlip }) => {
     <StyledCard
       className={`${card.flipped || card.matched ? 'flipped' : ''}`}
       backgroundImageBack={card.img}
+      alt={card.alt}
       backgroundImageFront={loopy_back_img}
       onClick={handleClick}>
       <div className="card-front"></div>
