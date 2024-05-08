@@ -9,7 +9,7 @@ const Card = ({ card, index, handleFlip }) => {
 
   return (
     <StyledCard
-      className={`${card.flipped || card.matched ? 'flipped' : ''}`}
+      $isFlipped={card.flipped || card.matched}
       backgroundImageBack={card.img}
       alt={card.alt}
       backgroundImageFront={loopy_back_img}
@@ -33,9 +33,7 @@ export const StyledCard = styled.div`
   transition: transform 0.6s;
   transform-style: preserve-3d;
 
-  &.flipped {
-    transform: rotateY(180deg);
-  }
+  ${(props) => props.$isFlipped && `transform: rotateY(180deg);`}
 
   .card-front,
   .card-back {
