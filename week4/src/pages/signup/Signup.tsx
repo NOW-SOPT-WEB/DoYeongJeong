@@ -1,10 +1,9 @@
-// src/SignUpPage.tsx
-
 import styled from '@emotion/styled';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// 회원가입 페이지 컴포넌트
+import { signUp } from '../../api';
+
 const SignUpPage = () => {
   const navigate = useNavigate();
 
@@ -13,11 +12,21 @@ const SignUpPage = () => {
   const [nickName, setNickName] = useState('');
   const [phone, setPhone] = useState('');
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: 회원가입 로직 처리
 
-    // console.log('회원가입 정보', { id, password, nickName, phone });
+    const userInfo = {
+      id,
+      password,
+      nickName,
+      phone,
+    };
+
+    const { data, location } = (await signUp(userInfo))!;
+
+    if (data.code === 201) {
+      navigate(`/${location}`);
+    }
   };
 
   return (
