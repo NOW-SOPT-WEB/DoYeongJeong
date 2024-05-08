@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Modal from './../../shared/components/Modal';
 import { CardList } from './../../shared/constants/Card';
@@ -46,6 +46,28 @@ const Home = () => {
     });
   };
 
+  const matchCards = (preId, nowId, preIdx, nowIdx) => {
+    if (nowId === preId) {
+      // 같은 카드인 경우 matched 상태 변경
+      setTimeout(() => {
+        setCards((prevCards) => prevCards.map((card) => (card.id === nowId ? { ...card, matched: true } : card)));
+
+        setMatched((prevMatched) => prevMatched + 1);
+
+        setOpenedCards([]);
+      }, 500);
+    } else {
+      // 같은 카드가 아닌 경우 flipped 상태 변경
+      setTimeout(() => {
+        setCards((prevCards) =>
+          prevCards.map((card, i) => (i === nowIdx || i === preIdx ? { ...card, flipped: false } : card)),
+        );
+
+        setOpenedCards([]);
+      }, 500);
+    }
+  };
+
   // 난이도 변경
   const onChangeDifficulty = (difficulty) => {
     setDifficulty(difficulty);
@@ -81,25 +103,7 @@ const Home = () => {
       const { index: preIdx, id: preId } = openedCards[0];
       const { index: nowIdx, id: nowId } = openedCards[1];
 
-      if (nowId === preId) {
-        // 같은 카드인 경우 matched 상태 변경
-        setTimeout(() => {
-          setCards((prevCards) => prevCards.map((card) => (card.id === nowId ? { ...card, matched: true } : card)));
-
-          setMatched((prevMatched) => prevMatched + 1);
-
-          setOpenedCards([]);
-        }, 500);
-      } else {
-        // 같은 카드가 아닌 경우 flipped 상태 변경
-        setTimeout(() => {
-          setCards((prevCards) =>
-            prevCards.map((card, i) => (i === nowIdx || i === preIdx ? { ...card, flipped: false } : card)),
-          );
-
-          setOpenedCards([]);
-        }, 500);
-      }
+      matchCards(preId, nowId, preIdx, nowIdx);
     }
   }, [openedCards]);
 
