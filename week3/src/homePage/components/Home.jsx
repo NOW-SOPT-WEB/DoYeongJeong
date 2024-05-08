@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Modal from './../../shared/components/Modal';
 import { CardList } from './../../shared/constants/Card';
