@@ -9,6 +9,11 @@ interface SignUpInfo {
   phone: string;
 }
 
+interface LoginInfo {
+  id: string;
+  password: string;
+}
+
 export const signUp = async (userInfo: SignUpInfo) => {
   try {
     const response = await axios.post(`${API_URL}/member/join`, {
@@ -16,6 +21,21 @@ export const signUp = async (userInfo: SignUpInfo) => {
       password: userInfo.password,
       nickname: userInfo.nickName,
       phone: userInfo.phone,
+    });
+
+    return { data: response.data, location: response.headers.location };
+  } catch (error) {
+    if (isAxiosError(error)) {
+      alert(error.response?.data.message);
+    }
+  }
+};
+
+export const login = async (loginInfo: LoginInfo) => {
+  try {
+    const response = await axios.post(`${API_URL}/member/login`, {
+      authenticationId: loginInfo.id,
+      password: loginInfo.password,
     });
 
     return { data: response.data, location: response.headers.location };
