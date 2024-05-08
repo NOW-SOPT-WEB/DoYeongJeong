@@ -10,7 +10,7 @@ const Header = () => {
 
 export default Header;
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
