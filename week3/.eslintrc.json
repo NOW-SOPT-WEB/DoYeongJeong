@@ -28,6 +28,13 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "off",
     "react/react-in-jsx-scope": "off",
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": true
+      }
+    ],
     "arrow-parens": ["error", "always"],
     "no-duplicate-imports": "error",
     "simple-import-sort/imports": "error",

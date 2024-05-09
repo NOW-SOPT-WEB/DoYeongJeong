@@ -14,8 +14,8 @@ const Card = ({ card, index, handleFlip }) => {
       alt={card.alt}
       backgroundImageFront={loopy_back_img}
       onClick={handleClick}>
-      <div className="card-front"></div>
-      <div className="card-back"></div>
+      <div className="card-front" />
+      <div className="card-back" />
     </StyledCard>
   );
 };
