@@ -164,6 +164,8 @@ const globalStyle = css`
       sans-serif;
     line-height: 1;
 
+    background-color: #e1e1e1;
+
     button {
       margin: 0;
 
