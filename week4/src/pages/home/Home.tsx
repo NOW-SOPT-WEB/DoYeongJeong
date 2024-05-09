@@ -8,9 +8,44 @@ const Home = () => {
   const navigate = useNavigate();
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
+  const [onIdError, setIdError] = useState({
+    open: false,
+    message: 'id를 입력해주세요',
+  });
+  const [onPwError, setPwError] = useState({
+    open: false,
+    message: 'password를 입력해주세요',
+  });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!id) {
+      setIdError((prev) => {
+        return { ...prev, open: true };
+      });
+
+      setTimeout(() => {
+        setIdError((prev) => {
+          return { ...prev, open: false };
+        });
+      }, 2000);
+      return;
+    }
+
+    if (!password) {
+      setPwError((prev) => {
+        return { ...prev, open: true };
+      });
+
+      setTimeout(() => {
+        setPwError((prev) => {
+          return { ...prev, open: false };
+        });
+      }, 2000);
+
+      return;
+    }
 
     const loginInfo: LoginInfo = {
       id,
@@ -29,14 +64,22 @@ const Home = () => {
       <Form onSubmit={handleSubmit}>
         <Title>Login</Title>
         <Img src={'public/assets/images/main.jpeg'} alt="" width={'20rem'} />
-        <Input type="id" placeholder="아이디" value={id} onChange={(e) => setId(e.target.value)} required />
-        <Input
-          type="password"
-          placeholder="비밀번호"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+
+        <InputContainer>
+          <Input type="id" placeholder="아이디" value={id} onChange={(e) => setId(e.target.value)} />
+          {onIdError.open && <Error>{onIdError.message}</Error>}
+        </InputContainer>
+
+        <InputContainer>
+          <Input
+            type="password"
+            placeholder="비밀번호"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {onPwError.open && <Error>{onPwError.message}</Error>}
+        </InputContainer>
+
         <ButtonContainer>
           <Button type="submit">로그인</Button>
           <Button type="button" onClick={() => navigate('signup')}>
@@ -85,12 +128,24 @@ const Img = styled.img`
   background-size: cover;
 `;
 
+const InputContainer = styled.div`
+  position: relative;
+`;
+
 const Input = styled.input`
   width: 20rem;
   padding: 1rem;
 
   border: 1px solid #ccc;
   border-radius: 5px;
+`;
+
+const Error = styled.p`
+  position: absolute;
+  bottom: -1.5rem;
+
+  color: red;
+  font-size: 1.2rem;
 `;
 
 const Button = styled.button`
