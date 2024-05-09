@@ -162,7 +162,7 @@ const GameScore = styled.p`
   text-align: center;
 `;
 
-const GameBoard = styled.div`
+const GameBoard = styled.section`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 2rem;
