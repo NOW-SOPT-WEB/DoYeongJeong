@@ -8,21 +8,16 @@ const Card = ({ card, index, handleFlip }) => {
   };
 
   return (
-    <StyledCard
-      $isFlipped={card.flipped || card.matched}
-      backgroundImageBack={card.img}
-      alt={card.alt}
-      backgroundImageFront={loopy_back_img}
-      onClick={handleClick}>
-      <div className="card-front" />
-      <div className="card-back" />
-    </StyledCard>
+    <CardContainer $isFlipped={card.flipped || card.matched} alt={card.alt} onClick={handleClick}>
+      <CardFront backgroundImage={loopy_back_img} />
+      <CardBack backgroundImage={card.img} />
+    </CardContainer>
   );
 };
 
 export default Card;
 
-export const StyledCard = styled.div`
+export const CardContainer = styled.div`
   width: 15rem;
   height: 20rem;
   display: flex;
@@ -34,25 +29,23 @@ export const StyledCard = styled.div`
   transform-style: preserve-3d;
 
   ${(props) => props.$isFlipped && `transform: rotateY(180deg);`}
+`;
 
-  .card-front,
-  .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    background-size: cover;
-    background-position: center;
-  }
+const StyledCard = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-size: cover;
+  background-position: center;
+  background-image: url(${(props) => props.backgroundImage});
+`;
 
-  .card-front {
-    background-image: url(${(props) => props.backgroundImageFront});
-    z-index: 2;
-    transform: rotateY(0deg);
-  }
+const CardFront = styled(StyledCard)`
+  z-index: 2;
+  transform: rotateY(0deg);
+`;
 
-  .card-back {
-    background-image: url(${(props) => props.backgroundImageBack});
-    transform: rotateY(180deg);
-  }
+const CardBack = styled(StyledCard)`
+  transform: rotateY(180deg);
 `;
