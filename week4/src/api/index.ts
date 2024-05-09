@@ -2,16 +2,23 @@ import axios, { isAxiosError } from 'axios';
 
 const API_URL = `${import.meta.env.VITE_BASE_URL}`;
 
-interface SignUpInfo {
+export interface SignUpInfo {
   id: string;
   password: string;
   nickName: string;
   phone: string;
 }
 
-interface LoginInfo {
+export interface LoginInfo {
   id: string;
   password: string;
+}
+
+export interface UpdatePassword {
+  memberId: string;
+  password: string;
+  newPassword: string;
+  newPasswordCheck: string;
 }
 
 export const signUp = async (userInfo: SignUpInfo) => {
@@ -23,7 +30,7 @@ export const signUp = async (userInfo: SignUpInfo) => {
       phone: userInfo.phone,
     });
 
-    return { data: response.data, location: response.headers.location };
+    return response.data;
   } catch (error) {
     if (isAxiosError(error)) {
       alert(error.response?.data.message);
@@ -39,6 +46,46 @@ export const login = async (loginInfo: LoginInfo) => {
     });
 
     return { data: response.data, location: response.headers.location };
+  } catch (error) {
+    if (isAxiosError(error)) {
+      alert(error.response?.data.message);
+    }
+  }
+};
+
+export const getUser = async (id: string) => {
+  try {
+    const response = await axios.get(`${API_URL}/member/info`, {
+      headers: {
+        memberId: id,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    if (isAxiosError(error)) {
+      console.error(error);
+    }
+  }
+};
+
+export const updatePassword = async (updatePassword: UpdatePassword) => {
+  try {
+    const response = await axios.patch(
+      `${API_URL}/member/password`,
+      {
+        previousPassword: updatePassword.password,
+        newPassword: updatePassword.newPassword,
+        newPasswordVerification: updatePassword.newPasswordCheck,
+      },
+      {
+        headers: {
+          memberId: updatePassword.memberId,
+        },
+      },
+    );
+
+    return response.data;
   } catch (error) {
     if (isAxiosError(error)) {
       alert(error.response?.data.message);
