@@ -8,8 +8,8 @@ const Main = () => {
   return (
     <Container>
       <Wrapper>
-        <Text>웨비들 ❤️</Text>
-        <Img />
+        <Title>웨비들 ❤️</Title>
+        <Img src={'public/assets/images/web.png'} width={'60rem'} height={'40rem'} />
         <div>
           <Button
             onClick={() => {
@@ -50,17 +50,17 @@ const Wrapper = styled.div`
   border-radius: 10px;
 `;
 
-const Text = styled.p`
+const Title = styled.p`
   color: white;
-  font-size: 2rem;
+  font-size: 3rem;
   text-align: center;
 `;
 
 const Img = styled.img`
-  width: 60rem;
-  height: 40rem;
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
 
-  background-image: url('public/assets/images/web.png');
+  background-image: url(${(props) => props.src});
   background-size: cover;
 `;
 
