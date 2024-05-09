@@ -2,23 +2,33 @@ import styled from '@emotion/styled';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { LoginInfo, login } from '../../api';
+
 const Home = () => {
   const navigate = useNavigate();
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: 로그인 로직 처리
 
-    // console.log('id:', id, 'Password:', password);
+    const loginInfo: LoginInfo = {
+      id,
+      password,
+    };
+
+    const { data, location } = (await login(loginInfo))!;
+
+    if (data?.code === 200) {
+      navigate(`/${location}`);
+    }
   };
 
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
-        <Text>Login</Text>
-        <img src="public/assets/images/main.jpeg" alt="" width={'200px'} />
+        <Title>Login</Title>
+        <Img src={'public/assets/images/main.jpeg'} alt="" width={'20rem'} />
         <Input type="id" placeholder="아이디" value={id} onChange={(e) => setId(e.target.value)} required />
         <Input
           type="password"
@@ -54,15 +64,25 @@ const Form = styled.form`
   align-items: center;
   width: 100%;
   max-width: 400px;
-  padding: 3rem;
+  padding: 4rem 10rem;
 
+  background-color: green;
   border: 1px solid #ccc;
   border-radius: 10px;
 `;
 
-const Text = styled.p`
-  font-size: 2rem;
+const Title = styled.p`
+  color: white;
+  font-size: 3rem;
   text-align: center;
+`;
+
+const Img = styled.img`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+
+  background-image: url(${(props) => props.src});
+  background-size: cover;
 `;
 
 const Input = styled.input`
