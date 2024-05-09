@@ -52,7 +52,13 @@ const Home = () => {
       setTimeout(() => {
         setCards((prevCards) => prevCards.map((card) => (card.id === nowId ? { ...card, matched: true } : card)));
 
-        setMatched((prevMatched) => prevMatched + 1);
+        setMatched((prevMatched) => {
+          if (prevMatched + 1 === difficulty) {
+            setShowModal(true);
+          }
+
+          return prevMatched + 1;
+        });
 
         setOpenedCards([]);
       }, 500);
@@ -71,6 +77,8 @@ const Home = () => {
   // 난이도 변경
   const onChangeDifficulty = (difficulty) => {
     setDifficulty(difficulty);
+
+    resetGame();
   };
 
   // 게임 초기화
@@ -89,29 +97,14 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-
-    resetGame();
-  }, [difficulty]);
-
-  useEffect(() => {
     // 선택된 카드가 2개인 경우
-    if (openedCards.length == 2) {
+    if (openedCards.length === 2) {
       const { index: preIdx, id: preId } = openedCards[0];
       const { index: nowIdx, id: nowId } = openedCards[1];
 
       matchCards(preId, nowId, preIdx, nowIdx);
     }
   }, [openedCards]);
-
-  useEffect(() => {
-    if (matched === difficulty) {
-      setShowModal(true);
-    }
-  }, [matched, difficulty]);
 
   return (
     <Container>
