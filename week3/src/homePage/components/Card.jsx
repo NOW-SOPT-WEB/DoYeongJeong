@@ -23,8 +23,8 @@ const Card = ({ card, index, handleFlip }) => {
 export default Card;
 
 export const StyledCard = styled.div`
-  width: 150px;
-  height: 200px;
+  width: 15rem;
+  height: 20rem;
   display: flex;
   justify-content: center;
   align-items: center;
