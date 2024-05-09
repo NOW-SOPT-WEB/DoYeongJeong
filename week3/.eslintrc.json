@@ -16,8 +16,6 @@
   ],
   "rules": {
     "react/prop-types": 0,
-    "quotes": ["off", "single"],
-    "semi": ["error", "always"],
     "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
     "no-multi-spaces": "error",
     "comma-dangle": ["error", "always-multiline"],
@@ -34,7 +32,7 @@
     "no-duplicate-imports": "error",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "no-unused-vars": "true",
+    "no-unused-vars": "off",
     "no-undef": "error",
     "indent": "off",
     "import/no-unresolved": "off",
