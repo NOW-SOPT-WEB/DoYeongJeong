@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 import { useNavigate, useParams } from 'react-router-dom';
 
+import video from '../../../public/assets/videos/chuu.mp4';
+
 const Main = () => {
   const navigate = useNavigate();
   const { id } = useParams();
@@ -9,7 +11,11 @@ const Main = () => {
     <Container>
       <Wrapper>
         <Title>웨비들 ❤️</Title>
-        <Img src={'public/assets/images/web.png'} width={'60rem'} height={'40rem'} />
+
+        <video muted autoPlay loop preload="auto" width={'250px'}>
+          <source src={video} />
+        </video>
+
         <div>
           <Button
             onClick={() => {
@@ -54,14 +60,6 @@ const Title = styled.p`
   color: white;
   font-size: 3rem;
   text-align: center;
-`;
-
-const Img = styled.img`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-
-  background-image: url(${(props) => props.src});
-  background-size: cover;
 `;
 
 const Button = styled.button`
