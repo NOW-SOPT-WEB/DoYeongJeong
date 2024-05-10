@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { SignUpInfo, signUp } from '../../api';
+import { validatePassword } from '../../utils';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -14,6 +15,12 @@ const SignUpPage = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!validatePassword(password)) {
+      alert('비밀번호는 최소 8자 이상이며, 숫자, 문자, 특수문자를 각각 최소 하나 이상 포함해야 합니다.');
+
+      return;
+    }
 
     const userInfo: SignUpInfo = {
       id,
@@ -48,9 +55,10 @@ const SignUpPage = () => {
         <div>
           <Title>회원가입</Title>
         </div>
+
         <FlexContainer>
           <Label htmlFor="id">ID</Label>
-          <Input name="id" placeholder="아이디" value={id} onChange={(e) => setId(e.target.value)} required />
+          <Input name="id" placeholder="아이디" value={id} onChange={(e) => setId(e.target.value)} />
         </FlexContainer>
 
         <FlexContainer>
@@ -61,7 +69,6 @@ const SignUpPage = () => {
             placeholder="비밀번호"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </FlexContainer>
 
@@ -69,24 +76,12 @@ const SignUpPage = () => {
 
         <FlexContainer>
           <Label htmlFor="nickName">닉네임</Label>
-          <Input
-            name="nickName"
-            placeholder="닉네임"
-            value={nickName}
-            onChange={(e) => setNickName(e.target.value)}
-            required
-          />
+          <Input name="nickName" placeholder="닉네임" value={nickName} onChange={(e) => setNickName(e.target.value)} />
         </FlexContainer>
 
         <FlexContainer>
           <Label htmlFor="phone">전화번호</Label>
-          <Input
-            name="phone"
-            placeholder="전화번호"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            required
-          />
+          <Input name="phone" placeholder="전화번호" value={phone} onChange={(e) => setPhone(e.target.value)} />
         </FlexContainer>
         <Description>전화번호 형식은 010-****-****입니다.</Description>
 
