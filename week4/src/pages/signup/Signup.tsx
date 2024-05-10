@@ -1,9 +1,10 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { SignUpInfo, signUp } from '../../api';
-import { validatePassword } from '../../utils';
+import { formatPhoneNumber, validatePassword } from '../../utils';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -12,9 +13,63 @@ const SignUpPage = () => {
   const [password, setPassword] = useState('');
   const [nickName, setNickName] = useState('');
   const [phone, setPhone] = useState('');
+  const [error, setError] = useState({ id: false, password: false, nickName: false, phone: false });
+
+  const idRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const nickNameRef = useRef<HTMLInputElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    if (name === 'id') {
+      if (error.id) setError({ ...error, id: false });
+      setId(value);
+    } else if (name === 'password') {
+      if (error.password) setError({ ...error, password: false });
+      setPassword(value);
+    } else if (name === 'nickName') {
+      if (error.nickName) setError({ ...error, nickName: false });
+      setNickName(value);
+    } else if (name === 'phone') {
+      if (error.phone) setError({ ...error, phone: false });
+      setPhone(value);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setError({ id: !id, password: !password, nickName: !nickName, phone: !phone });
+
+    if (!id) {
+      alert('아이디를 입력해주세요.');
+      idRef.current!.focus();
+
+      return;
+    }
+
+    if (!password) {
+      alert('비밀번호를 입력해주세요.');
+      passwordRef.current!.focus();
+
+      return;
+    }
+
+    if (!nickName) {
+      alert('닉네임을 입력해주세요.');
+      nickNameRef.current!.focus();
+
+      return;
+    }
+
+    if (!phone) {
+      alert('전화번호를 입력해주세요.');
+      phoneRef.current!.focus();
+
+      return;
+    }
 
     if (!validatePassword(password)) {
       alert('비밀번호는 최소 8자 이상이며, 숫자, 문자, 특수문자를 각각 최소 하나 이상 포함해야 합니다.');
@@ -38,15 +93,7 @@ const SignUpPage = () => {
   };
 
   useEffect(() => {
-    setPhone((prev) => {
-      // TODO: util로 분리
-      if ((prev.length === 4 || prev.length === 9) && prev[prev.length - 1] !== '-') {
-        return prev.slice(0, prev.length - 1) + '-' + prev[prev.length - 1];
-      } else if ((prev.length === 4 || prev.length === 9) && prev[prev.length - 1] === '-') {
-        return prev.slice(0, prev.length - 1);
-      }
-      return prev;
-    });
+    setPhone((prev) => formatPhoneNumber(prev));
   }, [phone]);
 
   return (
@@ -58,7 +105,14 @@ const SignUpPage = () => {
 
         <FlexContainer>
           <Label htmlFor="id">ID</Label>
-          <Input name="id" placeholder="아이디" value={id} onChange={(e) => setId(e.target.value)} />
+          <Input
+            name="id"
+            placeholder="아이디"
+            value={id}
+            onChange={(e) => onChange(e)}
+            ref={idRef}
+            $isError={error.id}
+          />
         </FlexContainer>
 
         <FlexContainer>
@@ -68,7 +122,9 @@ const SignUpPage = () => {
             name="password"
             placeholder="비밀번호"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => onChange(e)}
+            ref={passwordRef}
+            $isError={error.password}
           />
         </FlexContainer>
 
@@ -76,12 +132,26 @@ const SignUpPage = () => {
 
         <FlexContainer>
           <Label htmlFor="nickName">닉네임</Label>
-          <Input name="nickName" placeholder="닉네임" value={nickName} onChange={(e) => setNickName(e.target.value)} />
+          <Input
+            name="nickName"
+            placeholder="닉네임"
+            value={nickName}
+            onChange={(e) => onChange(e)}
+            ref={nickNameRef}
+            $isError={error.nickName}
+          />
         </FlexContainer>
 
         <FlexContainer>
           <Label htmlFor="phone">전화번호</Label>
-          <Input name="phone" placeholder="전화번호" value={phone} onChange={(e) => setPhone(e.target.value)} />
+          <Input
+            name="phone"
+            placeholder="전화번호"
+            value={phone}
+            onChange={(e) => onChange(e)}
+            ref={phoneRef}
+            $isError={error.phone}
+          />
         </FlexContainer>
         <Description>전화번호 형식은 010-****-****입니다.</Description>
 
@@ -140,12 +210,18 @@ const Label = styled.label`
   font-size: 1.6rem;
 `;
 
-const Input = styled.input`
+const Input = styled.input<{ $isError: boolean }>`
   width: 15rem;
   padding: 1rem;
 
   border: 1px solid #ccc;
   border-radius: 5px;
+
+  ${(props) =>
+    props.$isError &&
+    css`
+      border-color: red;
+    `}
 `;
 
 const Description = styled.p`
