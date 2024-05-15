@@ -34,7 +34,7 @@ const SignUpPage = () => {
       setNickName(value);
     } else if (name === 'phone') {
       if (error.phone) setError({ ...error, phone: false });
-      setPhone(value);
+      setPhone(formatPhoneNumber(value));
     }
   };
 
@@ -92,9 +92,7 @@ const SignUpPage = () => {
     }
   };
 
-  useEffect(() => {
-    setPhone((prev) => formatPhoneNumber(prev));
-  }, [phone]);
+  useEffect(() => {}, [phone]);
 
   return (
     <Container>
