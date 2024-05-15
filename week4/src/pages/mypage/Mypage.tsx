@@ -17,15 +17,15 @@ const Mypage = () => {
   const [newPassword, setNewPassword] = useState('');
   const [newPasswordCheck, setNewPasswordCheck] = useState('');
 
+  const fetchData = async () => {
+    if (id) {
+      const response = await getUser(id);
+
+      setUserInfo(response.data);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      if (id) {
-        const response = await getUser(id);
-
-        setUserInfo(response.data);
-      }
-    };
-
     fetchData();
   }, [id]);
 
