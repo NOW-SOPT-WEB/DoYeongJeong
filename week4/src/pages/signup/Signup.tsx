@@ -97,9 +97,7 @@ const SignUpPage = () => {
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
-        <div>
-          <Title>회원가입</Title>
-        </div>
+        <Title>회원가입</Title>
 
         <FlexContainer>
           <Label htmlFor="id">ID</Label>
