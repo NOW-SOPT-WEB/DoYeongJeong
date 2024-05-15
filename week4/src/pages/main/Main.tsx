@@ -68,11 +68,11 @@ const Button = styled.button`
 
   color: white;
 
-  background-color: #007bff;
+  background-color: ${({ theme }) => theme.color.blue};
   border: none;
   border-radius: 5px;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: ${({ theme }) => theme.color.deepBlue};
   }
 `;
