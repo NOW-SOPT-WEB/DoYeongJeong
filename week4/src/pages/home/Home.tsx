@@ -8,11 +8,11 @@ const Home = () => {
   const navigate = useNavigate();
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
-  const [onIdError, setIdError] = useState({
+  const [idError, setIdError] = useState({
     open: false,
     message: 'id를 입력해주세요',
   });
-  const [onPwError, setPwError] = useState({
+  const [pwError, setPwError] = useState({
     open: false,
     message: 'password를 입력해주세요',
   });
@@ -67,7 +67,7 @@ const Home = () => {
 
         <InputContainer>
           <Input type="id" placeholder="아이디" value={id} onChange={(e) => setId(e.target.value)} />
-          {onIdError.open && <Error>{onIdError.message}</Error>}
+          {idError.open && <Error>{idError.message}</Error>}
         </InputContainer>
 
         <InputContainer>
@@ -77,7 +77,7 @@ const Home = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          {onPwError.open && <Error>{onPwError.message}</Error>}
+          {pwError.open && <Error>{pwError.message}</Error>}
         </InputContainer>
 
         <ButtonContainer>
